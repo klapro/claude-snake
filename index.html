@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Isometric Snake Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            height: 600px;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #playButton, #submitScore {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        #playButton:hover, #submitScore:hover {
+            background-color: #45a049;
+        }
+        #score, #highScore {
+            position: absolute;
+            font-size: 18px;
+            color: #333;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        #score { top: 10px; left: 10px; }
+        #highScore { top: 10px; right: 10px; }
+        #nameInput {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px;
+            font-size: 16px;
+            z-index: 10;
+        }
+        #highScoreTable {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+        }
+        #highScoreTable table {
+            border-collapse: collapse;
+        }
+        #highScoreTable th, #highScoreTable td {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <button id="playButton">Play</button>
+        <div id="score">Score: 0</div>
+        <div id="highScore">High Score: 0</div>
+        <input type="text" id="nameInput" placeholder="Enter your name" style="display: none;">
+        <button id="submitScore" style="display: none;">Submit Score</button>
+        <div id="highScoreTable">
+            <h3>High Scores</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="highScoreTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
